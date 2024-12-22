@@ -57,11 +57,11 @@ const getAllAlbums = asyncHandler(async (req, res) => {
     };
   }));
 
-  const count = results.length;
-  const format = [{ count }, ...results];
+  // const count = results.length;
+  // const format = [{ count }, ...results];
 
   // res.status(200).json(apiResponse(200, format, 'Albums retrieved successfully.'));
-  return successResponse(res, 200, format, 'Albums retrieved successfully.');
+  return successResponse(res, 200, results, 'Albums retrieved successfully.');
 });
 
 // Get album by ID

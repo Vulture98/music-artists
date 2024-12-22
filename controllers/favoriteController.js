@@ -35,10 +35,10 @@ const getFavorites = asyncHandler(async (req, res) => {
     };
   });
 
-  const count = favorites.length;
-  const format = [{ count }, ...formattedFavorites];
+  // const count = favorites.length;
+  // const format = [{ count }, ...formattedFavorites];
 
-  return successResponse(res, 200, format, 'Favorites retrieved successfully.');
+  return successResponse(res, 200, formattedFavorites, 'Favorites retrieved successfully.');
 });
 
 // Add favorite

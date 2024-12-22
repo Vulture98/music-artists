@@ -60,10 +60,10 @@ const getAllTracks = asyncHandler(async (req, res) => {
 			hidden: track.hidden
 		}
 	}));
-	const count = result.length
-	const format = [{ count }, ...result]
-	
-	res.status(200).json(apiResponse(200, format, 'Tracks retrieved successfully.'));
+	// const count = result.length
+	// const format = [{ count }, ...result]
+		
+	return successResponse(res, 200, result, 'Tracks retrieved successfully.');
 });
 
 // Get track by ID

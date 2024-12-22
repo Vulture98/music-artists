@@ -50,10 +50,10 @@ const getAllArtists = asyncHandler(async (req, res) => {
 		grammy: artist.grammy,
 		hidden: artist.hidden,
 	}));
-	const count = formattedArtists.length;
-	const result = [{ count }, ...formattedArtists];
+	// const count = formattedArtists.length;
+	// const result = [{ count }, ...formattedArtists];
 	
-	return successResponse(res, 200, result, 'Artists retrieved successfully.');
+	return successResponse(res, 200, formattedArtists, 'Artists retrieved successfully.');
 });
 
 // Get artist by ID

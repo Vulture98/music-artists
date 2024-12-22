@@ -56,11 +56,11 @@ const getAllUsers = asyncHandler(async (req, res) => {
     created_at: user.createdAt
   }));
 
-  const count = formattedUsers.length;
-  const result = [{ count }, ...formattedUsers];
+  // const count = formattedUsers.length;
+  // const result = [{ count }, ...formattedUsers];
 
   Logger.info(`Users retrieved successfully`);  
-  return successResponse(res, 200, result, 'Users retrieved successfully.');
+  return successResponse(res, 200, formattedUsers, 'Users retrieved successfully.');
 });
 
 const deleteUserById = asyncHandler(async (req, res) => {
