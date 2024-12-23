@@ -3,7 +3,7 @@ import Album from '../models/albumModel.js';
 import Logger from '../utils/logger.js';
 import { ConflictError, NotFoundError, ValidationError } from '../utils/error.js';
 import Artist from '../models/artistModel.js';
-import { albumQuerySchema } from '../schemas/albumSchema.js';
+import { albumQuerySchema, addAlbumSchema } from '../schemas/albumSchema.js';
 
 const verifyAlbumAvailability = asyncHandler(async (req, res, next) => {  
   const { name, artist_id } = req.body;
