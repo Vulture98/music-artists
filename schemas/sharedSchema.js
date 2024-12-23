@@ -87,12 +87,13 @@ const sharedSchema = {
   duration: Joi.number()
     .integer()
     .min(1)
-    .max(10800)
+    .max(10800)    
     .messages({
       "number.base": "Duration must be a number.",
       "number.min": "Duration must be 1 or greater.",
       "number.max": "Duration cannot be more than 3 hours (10800 seconds).", 
-      "number.integer": "Duration must be an integer."
+      "number.integer": "Duration must be an integer.",
+      "any.empty": "Duration is empty"  // Message for empty value when required
     }),
 };
 

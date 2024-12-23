@@ -20,16 +20,31 @@ const trackQuerySchema = Joi.object({
 });
 
 const addTrackSchema = Joi.object({
-  artist_id: sharedSchema.artist_id.required(),
-  album_id: sharedSchema.album_id.required(),
-  name: sharedSchema.name.required(),
-  duration: sharedSchema.duration.required(),
+  artist_id: sharedSchema.uuids.required()
+    .messages({
+      'any.required': 'Artist ID is required',
+      'string.empty': 'Artist ID cannot be empty'
+    }),
+  album_id: sharedSchema.uuids.required()
+    .messages({
+      'any.required': 'Album ID is required',
+      'string.empty': 'Album ID cannot be empty'
+    }),
+  name: sharedSchema.name.required()
+    .messages({
+      'any.required': 'Track name is required',
+      'string.empty': 'Track name cannot be empty',
+      'string.base': 'Track name must be a string'
+    }),
+  duration: sharedSchema.duration.strict().required(),
   hidden: sharedSchema.hidden
 });
 
 const updateTrackSchema = Joi.object({
+  artist_id: sharedSchema.uuids,
+  album_id: sharedSchema.uuids,
   name: sharedSchema.name,
-  duration: sharedSchema.duration,
+  duration: sharedSchema.duration.strict(),
   hidden: sharedSchema.hidden
 });
 
